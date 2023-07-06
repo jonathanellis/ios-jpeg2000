@@ -1,12 +1,12 @@
 # Reading JPEG 2000 images in iOS
 
-iOS & macOS claim to natively support JPEG 2000, however my experience is that not all JPEG 2000 images are readable; it seems that the Apple implementation of JPEG 2000 is incomplete (at least as of iOS 16/macOS Ventura).
+iOS & macOS claim to natively support JPEG 2000, however my experience is that not *all* JPEG 2000 images are readable; it seems that the Apple implementation of JPEG 2000 is incomplete (at least as of iOS 16/macOS Ventura).
 
 For example, the JPEG 2000 images obtained from certain biometric passports (Spain/Portgual) are readable by other platforms (and tools like Photoshop), but not by iOS & macOS.
 
 To get around this, you can use OpenJPEG to read these "unreadable" images by compiling libopenjp2 as a static library for iOS.
 
-This repo contains a working proof-of-concept iOS app project which also includes a pre-compiled copy of libopenjp2 v2.5.0 compiled for arm64 as a static library, but I've also provided a full step-by-step guide of what I did so you can compile it for yourself and adapt the solution to your requirements:
+This repo contains a working proof-of-concept iOS app project which also includes a pre-compiled copy of [libopenjp2 v2.5.0 compiled for arm64 as a static library](JPEG2000/libopenjp2.a), but I've also provided a full step-by-step guide of what I did so you can compile it for yourself and adapt the solution to your requirements:
 
 ## Part 1: Compile libopenjp2 for iOS
 
@@ -225,7 +225,7 @@ Fortunately, [there's a solution to this](https://groups.google.com/g/openjpeg/c
 The final versions are available here:
 
 - [memory_stream.h](JPEG2000/memory_stream.h)
-- [memory_stream.m](JPEG2000/memory_stream.m)
+- [memory_stream.c](JPEG2000/memory_stream.c)
 
 Don't forget to add it to your bridging header:
 
